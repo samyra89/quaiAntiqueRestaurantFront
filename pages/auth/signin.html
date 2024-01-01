@@ -1,3 +1,4 @@
+<!--pages/auth/signin.js-->
 <div class="hero-scene text-center text-white">
   <div class="hero-scene-content">
     <h1>Connexion</h1>
@@ -13,13 +14,18 @@
         id="emailInput"
         placeholder="test@mail.fr"
       />
+      <div class="invalid-feedback">
+        Le mail et le mot de passe ne correspondent pas
+      </div>
     </div>
     <div class="mb-3">
       <label for="passwordInput" class="form-label">Mot de passe</label>
       <input type="password" class="form-control" id="passwordInput" />
     </div>
     <div class="text-center">
-      <button type="submit" class="btn btn-primary">connexion</button>
+      <button type="button" class="btn btn-primary" id="btnSignin">
+        connexion
+      </button>
     </div>
     <div class="text-center pt-3 pb-3">
       <a href="/signup">Vous n'avez pas de compte ? Inscrivez-vous ici !</a>

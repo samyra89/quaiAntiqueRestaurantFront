@@ -12,6 +12,7 @@
     />
 
     <link rel="stylesheet" href="scss/main.css" />
+    <script src="js/script.js" defer></script>
     <script type="module" src="Router/Router.js"></script>
   </head>
   <body>
@@ -48,8 +49,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="/account">Mon compte</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" data-show="disconnected">
                 <a class="nav-link" href="/signin">Connexion</a>
+              </li>
+              <li class="nav-item" data-show="connected">
+                <button class="nav-link" id="signout-btn">Déconnexion</button>
               </li>
             </ul>
           </div>
@@ -78,6 +82,7 @@
         </div>
       </div>
     </footer>
+
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
