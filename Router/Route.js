@@ -1,5 +1,10 @@
 // Route.js
 export default class Route {
+  url;
+  title;
+  pathHtml;
+  authorize;
+  pathJS;
   constructor(url, title, pathHtml, authorize, pathJS = "") {
     this.url = url;
     this.title = title;

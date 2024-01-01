@@ -8,13 +8,11 @@ function checkCredentials() {
   // ici, appeler l'API pour vérifier les credentials en BDD
 
   if (mailInput.value === "test@mail.com" && passwordInput.value === "123") {
-    //alert("vous êtes connecté");
-
     // il faudra récupérer le vrai token
     //placer ce token en cookie
     const token = "sjdkfzeldskjgrpeoildfkgjkdfjeproipi";
     setToken(token);
-    //setCookie(roleCookieName, "admin", 7);
+
     setCookie(roleCookieName, "client", 7);
 
     window.location.replace("/");
