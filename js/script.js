@@ -3,7 +3,8 @@
 const tokenCookieName = "accesstoken";
 const signoutBtn = document.getElementById("signout-btn");
 const roleCookieName = "role";
-
+const apiUrl = "https://127.0.0.1:8000/api/";
+//getInfosUser(); // juste pour tester la récupération
 function getRole() {
   return getCookie(roleCookieName);
 }
@@ -18,7 +19,6 @@ function signout() {
 
 function setToken(token) {
   setCookie(tokenCookieName, token, 7);
-  return cookie;
 }
 // récupérer le token
 function getToken() {
@@ -97,4 +97,30 @@ function sanitizeHtml(text) {
   const tempHtml = document.createElement("div");
   tempHtml.textContent = text;
   return tempHtml.innerHTML;
+}
+function getInfosUser() {
+  let myHeaders = new Headers();
+  myHeaders.append("X-AUTH-TOKEN", getToken());
+  let requestOptions = {
+    method: "GET",
+    headers: myHeaders,
+    redirect: "follow",
+  };
+  fetch(apiUrl + "account/me", requestOptions)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        console.log("impossible de récupérer les infos de l'utilisateur");
+      }
+    })
+    .then((result) => {
+      return result;
+    })
+    .catch((error) =>
+      console.error(
+        "erreur lors de la récupération des données utilisateur",
+        error
+      )
+    );
 }
